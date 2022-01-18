@@ -73,7 +73,6 @@ namespace HotelWebApplication.Controllers.api
             try
             {
                 Guest guest = await HotelDB.Guest.FindAsync(id);
-               guest.Id = value.Id;
                 guest.FirstName = value.FirstName;
                 guest.LastName = value.LastName;
                 guest.Gender = value.Gender;
@@ -100,6 +99,7 @@ namespace HotelWebApplication.Controllers.api
             try
             {
                HotelDB.Guest.Remove(await HotelDB.Guest.FindAsync(id));
+               await HotelDB.SaveChangesAsync();
 
                 return Ok("item was deleted");
 
