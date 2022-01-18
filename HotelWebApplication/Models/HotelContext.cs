@@ -11,7 +11,7 @@ namespace HotelWebApplication.Models
             : base("name=HotelContext")
         {
         }
-
+      public virtual DbSet <Guest> Guest { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
